@@ -1,0 +1,17 @@
+.button{
+    background-color: rgb(188, 59, 4);
+    border: none;
+    color: white;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.button:active{
+    transform:scale(0.95);
+}
