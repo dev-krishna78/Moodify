@@ -1,5 +1,5 @@
 import { login , register , getMe , logout } from "../services/auth.api"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { AuthContext } from "../auth.context"
 
 export const useAuth = () =>{
@@ -27,16 +27,21 @@ export const useAuth = () =>{
    async function handelGetme(){
     setLoading(true)
     const data = await getMe()
-    setUser(user.data)
+    setUser(data.user)
     setLoading(false)
    }
 
    async function handellogout(){
     setLoading(true)
-    const data  = await logout()
+    await logout()
     setUser(null)
     setLoading(false)
    }
+
+
+   useEffect(()=>{
+      handelGetme()
+   },[])
  
    return({user , loading ,handelGetme, handelLogin, handelRegister, handellogout})
 
